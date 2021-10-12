@@ -1,4 +1,4 @@
-Feature: Application Login
+Feature: Login into coporate banking login
 Scenario: Verify the dashboard page
 Given User is on the landing page
 |http://41.215.180.245:8085/CorporateBanking/#/landing|
