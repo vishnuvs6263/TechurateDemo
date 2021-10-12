@@ -1,6 +1,7 @@
 package stepDefnition;
 
 import java.util.List;
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.runner.RunWith;
@@ -11,6 +12,7 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+
 import Pages.LoginPageObjects;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.PendingException;
@@ -20,6 +22,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.cucumber.junit.Cucumber;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import junit.framework.Assert;
 
 @RunWith(Cucumber.class)
 public class LoginStep {
@@ -31,15 +34,14 @@ public class LoginStep {
 	public void user_is_on_the_landing_page(DataTable data) throws Throwable {
 		List<List<String>> obj = data.asLists();
 		// Getting the automation project path
-				String ProjectPath = System.getProperty("user.dir");
-				
+		String ProjectPath = System.getProperty("user.dir");
 
-				// Initialize the driver
-				System.setProperty("webdriver.chrome.driver", ProjectPath + "/Drivers/chromedriver.exe");
-				driver = new ChromeDriver();
-
+		// Initialize the driver
+		System.setProperty("webdriver.chrome.driver", ProjectPath + "/Drivers/chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
+		Random rnd = new Random();
+		int n = 1000000000 + rnd.nextInt(900000000);
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.get(obj.get(0).get(0));
 
@@ -60,9 +62,20 @@ public class LoginStep {
 		objects.OTPField().sendKeys(obj.get(0).get(2));
 		Thread.sleep(3000);
 		objects.LoginBtn().click();
-		System.out.println("logged in");
-		
-		
+		wait.until(ExpectedConditions.elementToBeClickable(objects.getUserName()));
+		String ActualUserName = objects.getUserName().getText();
+		if (ActualUserName.contains(obj.get(0).get(3))) {
+			Assert.assertTrue(true);
+			System.out.println("Verify user login executed and passed successfully");
+
+		} else {
+			Assert.fail();
+			System.out.println("Test case verification failed");
+			Random rnd = new Random();
+			int n = 1000000000 + rnd.nextInt(900000000);
+			
+		}
+
 	}
 
 }

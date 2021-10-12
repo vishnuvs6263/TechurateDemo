@@ -19,7 +19,7 @@ public class LoginPageObjects {
 	@FindBy(xpath= "//input[@name='username']")WebElement UsernameField;
 	@FindBy(xpath= "//input[@name='password']")WebElement PasswordField;
 	@FindBy(xpath= "//input[@placeholder='Enter Code']")WebElement OTPField;
-	
+	@FindBy(xpath= "//div[@class='d-inline-block font-weight-600']")WebElement getUserName;
 	
 	public WebElement LoginBtn()
 	{
@@ -39,6 +39,11 @@ public class LoginPageObjects {
 	public WebElement OTPField()
 	{
 		return OTPField;
+	}
+	
+	public WebElement getUserName()
+	{
+		return getUserName;
 	}
 
 }

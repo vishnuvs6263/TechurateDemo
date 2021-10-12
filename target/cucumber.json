@@ -3,17 +3,17 @@
     "line": 1,
     "elements": [
       {
-        "start_timestamp": "2021-10-12T05:43:41.742Z",
+        "start_timestamp": "2021-10-12T09:54:05.693Z",
         "line": 2,
         "name": "Verify the dashboard page",
         "description": "",
-        "id": "application-login;verify-the-dashboard-page",
+        "id": "login-into-coporate-banking-login;verify-the-dashboard-page",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 16332336800,
+              "duration": 18824704500,
               "status": "passed"
             },
             "line": 3,
@@ -32,7 +32,7 @@
           },
           {
             "result": {
-              "duration": 6481495900,
+              "duration": 9414309400,
               "status": "passed"
             },
             "line": 5,
@@ -45,7 +45,8 @@
                 "cells": [
                   "dnmrinti",
                   "Test@123",
-                  "1234"
+                  "1234",
+                  "Naga Mohana"
                 ]
               }
             ],
@@ -54,11 +55,11 @@
         ]
       }
     ],
-    "name": "Application Login",
+    "name": "Login into coporate banking login",
     "description": "",
-    "id": "application-login",
+    "id": "login-into-coporate-banking-login",
     "keyword": "Feature",
-    "uri": "file:src/test/java/features/Login.feature",
+    "uri": "file:src/test/java/features/AddBiller.feature",
     "tags": []
   }
 ]
