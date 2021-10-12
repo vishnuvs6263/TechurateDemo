@@ -32,6 +32,7 @@ public class LoginStep {
 		List<List<String>> obj = data.asLists();
 		// Getting the automation project path
 				String ProjectPath = System.getProperty("user.dir");
+				
 
 				// Initialize the driver
 				System.setProperty("webdriver.chrome.driver", ProjectPath + "/Drivers/chromedriver.exe");
@@ -59,6 +60,7 @@ public class LoginStep {
 		objects.OTPField().sendKeys(obj.get(0).get(2));
 		Thread.sleep(3000);
 		objects.LoginBtn().click();
+		System.out.println("logged in");
 		
 		
 	}
