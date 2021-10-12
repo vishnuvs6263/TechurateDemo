@@ -1,0 +1,64 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "start_timestamp": "2021-10-12T05:43:41.742Z",
+        "line": 2,
+        "name": "Verify the dashboard page",
+        "description": "",
+        "id": "application-login;verify-the-dashboard-page",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 16332336800,
+              "status": "passed"
+            },
+            "line": 3,
+            "name": "User is on the landing page",
+            "match": {
+              "location": "stepDefnition.LoginStep.user_is_on_the_landing_page(io.cucumber.datatable.DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "http://41.215.180.245:8085/CorporateBanking/#/landing"
+                ]
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 6481495900,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "User login into the application with username password and OTP",
+            "match": {
+              "location": "stepDefnition.LoginStep.user_login_into_the_application_with_username_password_and_otp(io.cucumber.datatable.DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "dnmrinti",
+                  "Test@123",
+                  "1234"
+                ]
+              }
+            ],
+            "keyword": "When "
+          }
+        ]
+      }
+    ],
+    "name": "Application Login",
+    "description": "",
+    "id": "application-login",
+    "keyword": "Feature",
+    "uri": "file:src/test/java/features/Login.feature",
+    "tags": []
+  }
+]
