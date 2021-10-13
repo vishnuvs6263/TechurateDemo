@@ -1,5 +1,7 @@
 package stepDefnition;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
@@ -10,9 +12,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-
+import Pages.AddBillerPage;
+import Pages.AddBeneficiary;
 import Pages.LoginPageObjects;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.PendingException;
@@ -40,8 +44,6 @@ public class LoginStep {
 		System.setProperty("webdriver.chrome.driver", ProjectPath + "/Drivers/chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
-		Random rnd = new Random();
-		int n = 1000000000 + rnd.nextInt(900000000);
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.get(obj.get(0).get(0));
 
@@ -71,11 +73,74 @@ public class LoginStep {
 		} else {
 			Assert.fail();
 			System.out.println("Test case verification failed");
-			Random rnd = new Random();
-			int n = 1000000000 + rnd.nextInt(900000000);
-			
-		}
 
+		}
+		
+		
+	}
+
+	@Then("^Navigate to payments module and add biller$")
+	public void navigate_to_payments_module_and_add_biller() throws Throwable {
+
+		AddBillerPage objects = new AddBillerPage(driver);
+		System.out.println("executed add biller");
+		wait.until(ExpectedConditions.elementToBeClickable(objects.PaymentsModule()));
+		objects.PaymentsModule().click();
+		wait.until(ExpectedConditions.elementToBeClickable(objects.AddBillerBtn()));
+		objects.AddBillerBtn().click();
+		wait.until(ExpectedConditions.elementToBeClickable(objects.SubmitBtn()));
+		Select select = new Select(objects.SelectMerchantDropDown());
+		select.selectByValue("MLife");
+		Random rnd = new Random();
+		int n = 1000000000 + rnd.nextInt(900000000);
+		String accnumber = String.valueOf(n);
+		objects.AccountNumberField().sendKeys(accnumber);
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("mmss");
+		LocalDateTime now = LocalDateTime.now();
+		System.out.println(dtf.format(now));
+		String BillerName = "Test Demo Biller";
+		objects.ShortNameField().sendKeys(BillerName);
+		objects.SubmitBtn().click();
+		String SuccessMSg = objects.VerifySuccessMsg().getText();
+		if (SuccessMSg.contains("Biller Beneficiary Added Successfully")) {
+			Assert.assertTrue(true);
+			System.out.println("Verify user add biller executed and passed successfully");
+
+		} else {
+			Assert.fail();
+			System.out.println("Test case verification failed");
+
+		}
+		wait.until(ExpectedConditions.elementToBeClickable(objects.DoneBtn()));
+		objects.DoneBtn().click();
+		wait.until(ExpectedConditions.elementToBeClickable(objects.DeleteBtn()));
+		objects.DeleteBtn().click();
+		wait.until(ExpectedConditions.elementToBeClickable(objects.CnfrmBtn()));
+		objects.CnfrmBtn().click();
+
+
+	}
+	
+	@Then("^user is able to add beneficiary$")
+	public void user_is_able_to_add_beneficiary(DataTable data) {
+		System.out.println("user is able to add beneficiary");
+		AddBeneficiary objects = new AddBeneficiary(driver);
+		List<List<String>> obj = data.asLists();
+		Random rnd = new Random();
+		int n = 1000000000 + rnd.nextInt(900000000);
+		String accnumber = String.valueOf(n);
+		objects.Transfers().click();
+		objects.AddBeneficiaryTransfers().click();
+		objects.internalBeneficiary().click();
+		objects.NickNameinternalBeneficiary().sendKeys(obj.get(0).get(0));
+		objects.AccountNointernalBeneficiary().sendKeys(accnumber);
+		objects.ConfirmAcNointernalBeneficiary().sendKeys(accnumber);
+		objects.TransfersLimitInternalBeneficiary().sendKeys("3");
+		objects.SubmitInternalBeneficiary().click();
+		objects.ConfirmSubmit().click();
+		objects.OTP().sendKeys("1234");
+		objects.OTPSubmit().click();
+		
 	}
 
 }

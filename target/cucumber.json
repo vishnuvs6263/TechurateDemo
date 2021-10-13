@@ -3,17 +3,17 @@
     "line": 1,
     "elements": [
       {
-        "start_timestamp": "2021-10-12T09:54:05.693Z",
+        "start_timestamp": "2021-10-13T13:18:35.367Z",
         "line": 2,
         "name": "Verify the dashboard page",
         "description": "",
-        "id": "login-into-coporate-banking-login;verify-the-dashboard-page",
+        "id": "login-into-coporate-banking-login--add-biller-and-beneficiary;verify-the-dashboard-page",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 18824704500,
+              "duration": 15933948500,
               "status": "passed"
             },
             "line": 3,
@@ -32,7 +32,7 @@
           },
           {
             "result": {
-              "duration": 9414309400,
+              "duration": 10885051000,
               "status": "passed"
             },
             "line": 5,
@@ -51,13 +51,38 @@
               }
             ],
             "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 7507499100,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "Navigate to payments module and add biller",
+            "match": {
+              "location": "stepDefnition.LoginStep.navigate_to_payments_module_and_add_biller()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "error_message": "org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//*[@id\u003d\"Layout\"]/div/div/div[2]/div[1]/a[4]/h2\"}\n  (Session info: chrome\u003d94.0.4606.71)\nFor documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html\nBuild info: version: \u00273.141.59\u0027, revision: \u0027e82be7d358\u0027, time: \u00272018-11-14T08:17:03\u0027\nSystem info: host: \u0027LAPWINX-DAC104\u0027, ip: \u0027192.168.0.37\u0027, os.name: \u0027Windows 10\u0027, os.arch: \u0027amd64\u0027, os.version: \u002710.0\u0027, java.version: \u002716.0.2\u0027\nDriver info: org.openqa.selenium.chrome.ChromeDriver\nCapabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 94.0.4606.71, chrome: {chromedriverVersion: 94.0.4606.61 (418b78f5838ed..., userDataDir: C:\\Users\\vishnuvs\\AppData\\L...}, goog:chromeOptions: {debuggerAddress: localhost:58317}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}\nSession ID: ad4a6aa12a7185ca2c79dbe93d80dfe0\n*** Element info: {Using\u003dxpath, value\u003d//*[@id\u003d\"Layout\"]/div/div/div[2]/div[1]/a[4]/h2}\r\n\tat java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)\r\n\tat java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:78)\r\n\tat java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)\r\n\tat java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)\r\n\tat java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)\r\n\tat org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)\r\n\tat org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)\r\n\tat org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)\r\n\tat org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)\r\n\tat org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)\r\n\tat org.openqa.selenium.By$ByXPath.findElement(By.java:353)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)\r\n\tat org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)\r\n\tat org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)\r\n\tat jdk.proxy2/jdk.proxy2.$Proxy17.click(Unknown Source)\r\n\tat stepDefnition.LoginStep.user_is_able_to_add_beneficiary(LoginStep.java:129)\r\n\tat ✽.user is able to add beneficiary(file:///C:/Users/vishnuvs/eclipse-workspace/TestAutomationDemo/src/test/java/features/AddBiller.feature:8)\r\n",
+              "duration": 10030000700,
+              "status": "failed"
+            },
+            "line": 8,
+            "name": "user is able to add beneficiary",
+            "match": {
+              "location": "stepDefnition.LoginStep.user_is_able_to_add_beneficiary()"
+            },
+            "keyword": "Then "
           }
         ]
       }
     ],
-    "name": "Login into coporate banking login",
+    "name": "Login into coporate banking login, add biller and beneficiary",
     "description": "",
-    "id": "login-into-coporate-banking-login",
+    "id": "login-into-coporate-banking-login--add-biller-and-beneficiary",
     "keyword": "Feature",
     "uri": "file:src/test/java/features/AddBiller.feature",
     "tags": []

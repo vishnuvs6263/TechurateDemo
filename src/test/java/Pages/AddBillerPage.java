@@ -16,11 +16,21 @@ public class AddBillerPage {
 	}
 	
 	@FindBy(xpath= "(//h2[text()='Payments'])[2]")WebElement PaymentsModule;
-	@FindBy(xpath= "//span[text()='Maintain a service provider beneficiary']")WebElement AddBillerBtn;
+	@FindBy(xpath= "(.//*[normalize-space(text()) and normalize-space(.)='ZMW'])[2]/following::h3[1]")WebElement AddBillerBtn;
 	@FindBy(xpath= "//select[@name='merchant']")WebElement SelectMerchantDropDown;
 	@FindBy(xpath= "//input[@name='serviceNumber']")WebElement AccountNumberField;
 	@FindBy(xpath= "//input[@name='shortName']")WebElement ShortNameField;
 	@FindBy(xpath= "//p[text()='Submit']")WebElement SubmitBtn;
+	@FindBy(xpath= "//p[@class='mt-4 text-secondary']")WebElement VerifySuccessMsg;
+	@FindBy(xpath= "//p[@class='my-auto mx-auto']")WebElement DoneBtn;
+	@FindBy(xpath= "//*[@id=\"Layout\"]/div/div/div/div[2]/div[2]/div[2]/div[2]/div/div/div[1]/p")WebElement GetUserName;
+	@FindBy(xpath= "//div[@class='back-cancel-style']")WebElement DeleteBtn;
+	@FindBy(xpath= "//p[@class='my-auto mx-auto']")WebElement CnfrmBtn;
+	
+	public WebElement VerifySuccessMsg()
+	{
+		return VerifySuccessMsg;
+	}
 	
 	public WebElement PaymentsModule()
 	{
@@ -51,4 +61,23 @@ public class AddBillerPage {
 		return SubmitBtn;
 	}
 
+	public WebElement GetUserName()
+	{
+		return GetUserName;
+	}
+	
+	public WebElement DeleteBtn()
+	{
+		return DeleteBtn;
+	}
+	
+	public WebElement DoneBtn()
+	{
+		return DoneBtn;
+	}
+	
+	public WebElement CnfrmBtn()
+	{
+		return CnfrmBtn;
+	}
 }

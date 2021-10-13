@@ -45,5 +45,41 @@ public class LoginPageObjects {
 	{
 		return getUserName;
 	}
+	
+	@FindBy(xpath= "(//h2[text()='Payments'])[2]")WebElement PaymentsModule;
+	@FindBy(xpath= "//span[text()='Maintain a service provider beneficiary']")WebElement AddBillerBtn;
+	@FindBy(xpath= "//select[@name='merchant']")WebElement SelectMerchantDropDown;
+	@FindBy(xpath= "//input[@name='serviceNumber']")WebElement AccountNumberField;
+	@FindBy(xpath= "//input[@name='shortName']")WebElement ShortNameField;
+	@FindBy(xpath= "//p[text()='Submit']")WebElement SubmitBtn;
+	
+	public WebElement PaymentsModule()
+	{
+		return PaymentsModule;
+	}
+	
+	public WebElement AddBillerBtn()
+	{
+		return AddBillerBtn;
+	}
+	
+	public WebElement SelectMerchantDropDown()
+	{
+		return SelectMerchantDropDown;
+	}
+	
+	public WebElement AccountNumberField()
+	{
+		return AccountNumberField;
+	}
+	
+	public WebElement ShortNameField()
+	{
+		return ShortNameField;
+	}
+	public WebElement SubmitBtn()
+	{
+		return SubmitBtn;
+	}
 
 }
