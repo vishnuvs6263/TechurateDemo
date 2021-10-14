@@ -29,7 +29,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import junit.framework.Assert;
 
 @RunWith(Cucumber.class)
-public class LoginStep {
+public class StepDefnitions {
 
 	WebDriver driver;
 	WebDriverWait wait;
@@ -117,29 +117,43 @@ public class LoginStep {
 		objects.DeleteBtn().click();
 		wait.until(ExpectedConditions.elementToBeClickable(objects.CnfrmBtn()));
 		objects.CnfrmBtn().click();
+		driver.close();
+		driver.quit();
 
 
 	}
 	
-	@Then("^user is able to add beneficiary$")
+	@Then("^Navigate to accounts module and add beneficiary$")
 	public void user_is_able_to_add_beneficiary(DataTable data) {
-		System.out.println("user is able to add beneficiary");
+		
 		AddBeneficiary objects = new AddBeneficiary(driver);
+		objects.Transfers().click();
+		wait.until(ExpectedConditions.elementToBeClickable(objects.AddBeneficiaryTransfers()));
+		objects.AddBeneficiaryTransfers().click();
+		wait.until(ExpectedConditions.elementToBeClickable(objects.internalBeneficiary()));
 		List<List<String>> obj = data.asLists();
 		Random rnd = new Random();
-		int n = 1000000000 + rnd.nextInt(900000000);
+		int n = 100000000 + rnd.nextInt(90000000);
 		String accnumber = String.valueOf(n);
-		objects.Transfers().click();
-		objects.AddBeneficiaryTransfers().click();
+
 		objects.internalBeneficiary().click();
+		wait.until(ExpectedConditions.elementToBeClickable(objects.NickNameinternalBeneficiary()));
 		objects.NickNameinternalBeneficiary().sendKeys(obj.get(0).get(0));
-		objects.AccountNointernalBeneficiary().sendKeys(accnumber);
-		objects.ConfirmAcNointernalBeneficiary().sendKeys(accnumber);
+		objects.AccountNointernalBeneficiary().sendKeys("0011031001087");
+		objects.ConfirmAcNointernalBeneficiary().sendKeys("0011031001087");
 		objects.TransfersLimitInternalBeneficiary().sendKeys("3");
 		objects.SubmitInternalBeneficiary().click();
+		wait.until(ExpectedConditions.elementToBeClickable(objects.ConfirmSubmit()));
 		objects.ConfirmSubmit().click();
-		objects.OTP().sendKeys("1234");
+		wait.until(ExpectedConditions.elementToBeClickable(objects.OTP1()));
+		objects.OTP1().sendKeys("1");
+		objects.OTP2().sendKeys("2");
+		objects.OTP3().sendKeys("3");
+		objects.OTP4().sendKeys("4");
+		wait.until(ExpectedConditions.elementToBeClickable(objects.OTPSubmit()));
 		objects.OTPSubmit().click();
+		driver.close();
+		driver.quit();
 		
 	}
 

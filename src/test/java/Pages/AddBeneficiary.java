@@ -13,14 +13,14 @@ public class AddBeneficiary {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
     }
-	@FindBy(xpath = "//*[@id=\"Layout\"]/div/div/div[2]/div[1]/a[4]/h2")
+	@FindBy(xpath = "(//h2[text()='Transfers'])[2]")
 	WebElement Transfers;
 
 	public WebElement Transfers() {
 		return Transfers;
 
 	}
-	@FindBy(xpath = "//*[@id=\"Layout\"]/div/div/div/div[2]/div[2]/div[2]/div/div[1]/h2")
+	@FindBy(xpath = "(.//*[normalize-space(text()) and normalize-space(.)='ZMW'])[3]/following::div[6]")
 	WebElement AddBeneficiaryTransfers;
 
 	public WebElement AddBeneficiaryTransfers() {
@@ -62,26 +62,47 @@ public class AddBeneficiary {
 		return TransfersLimitInternalBeneficiary;
 
 	} 
-	@FindBy(xpath = "//*[@id=\"Layout\"]/div/div/div/div[2]/div[2]/div[2]/div/div/form/div[3]/button/p")
+	@FindBy(xpath = "//p[@class='my-auto mx-auto']")
 	WebElement SubmitInternalBeneficiary;
 
 	public WebElement SubmitInternalBeneficiary() {
 		return SubmitInternalBeneficiary;
 
 	}
-	@FindBy(xpath = "//*[@id=\"Layout\"]/div/div/div/div[2]/div[2]/div[2]/div/div/div[8]/button/p")
+	@FindBy(xpath = "//p[@class='my-auto mx-auto']")
 	WebElement ConfirmSubmit;
 
 	public WebElement ConfirmSubmit() {
 		return ConfirmSubmit;
     }
-	@FindBy(xpath = "//*[@id=\"Layout\"]/div/div/div/div[2]/div[2]/div[2]/div/div/div/div[1]/div/div[1]/input")
-	WebElement OTP;
+	@FindBy(xpath = "//input[@aria-label='Please enter verification code. Digit 1']")
+	WebElement OTP1;
 
-	public WebElement OTP() {
-		return OTP;
+	public WebElement OTP1() {
+		return OTP1;
     }
-	@FindBy(xpath = "//*[@id=\"Layout\"]/div/div/div/div[2]/div[2]/div[2]/div/div/div/div[2]/button/p")
+	
+	@FindBy(xpath = "//input[@aria-label='Digit 2']")
+	WebElement OTP2;
+
+	public WebElement OTP2() {
+		return OTP2;
+    }
+	
+	@FindBy(xpath = "//input[@aria-label='Digit 4']")
+	WebElement OTP4;
+
+	public WebElement OTP4() {
+		return OTP4;
+    }
+	
+	@FindBy(xpath = "//input[@aria-label='Digit 3']")
+	WebElement OTP3;
+
+	public WebElement OTP3() {
+		return OTP3;
+    }
+	@FindBy(xpath = "//p[@class='my-auto mx-auto']")
 	WebElement OTPSubmit;
 
 	public WebElement OTPSubmit() {
